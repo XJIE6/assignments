@@ -55,7 +55,7 @@ public class Injector {
             objects.put(param.getName(), objects.get(par));
 
         }
-        Object[] initiars = new Object[constructor.getParameterCount()];
+        Object[] initiars = new Object[constructor.getParameterTypes().length];
         int i = 0;
         for (Class<?> param : constructor.getParameterTypes()) {
             initiars[i] = objects.get(param.getName());
