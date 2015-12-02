@@ -28,7 +28,7 @@ public class Injector {
     }
 
     private static void dfs(String vertex) throws Exception {
-        if (color.containsKey(vertex)) {
+        if (color.containsKey(vertex) && color.get(vertex)) {
             throw new InjectionCycleException();
         }
         color.put(vertex, true);
@@ -62,5 +62,6 @@ public class Injector {
             i++;
         }
         objects.put(vertex, constructor.newInstance(initiars));
+        color.put(vertex, false);
     }
 }
