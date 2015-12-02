@@ -34,7 +34,6 @@ public class Injector {
         color.put(vertex, true);
         Constructor<?> constructor = Class.forName(vertex).getConstructors()[0];
         for (Class<?> param : constructor.getParameterTypes()) {
-            int modifier = param.getModifiers();
             Boolean f = false;
             String par = null;
             for (String cl : classes) {
