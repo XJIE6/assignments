@@ -22,7 +22,9 @@ public class Injector {
         color = new HashMap<>();
         objects = new HashMap<>();
         classes = new ArrayList<>(implementationClassNames);
-        classes.add(rootClassName);
+        if ((Class.forName(rootClassName).getModifiers() & (Modifier.INTERFACE | Modifier.ABSTRACT)) == 0) {
+            classes.add(rootClassName);
+        }
         dfs(rootClassName);
         return objects.get(rootClassName);
     }
